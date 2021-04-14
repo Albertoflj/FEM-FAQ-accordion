@@ -1,0 +1,203 @@
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 0.875rem;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient($softViolet, $softBlue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.component{
+    position: relative;
+    max-width: 57.5rem;
+    width: 100%;
+    min-height: 31.875rem;
+    border-radius: 1.25rem;
+    margin: 0 1.25rem;
+    background-color: white;
+    display: flex;
+    box-shadow: 0rem 2.125rem 3.125rem -1.25rem rgba(0,0,0,0.25);
+
+    
+}
+
+.component__main{
+    margin: 0 5.25rem;
+    position: relative;
+    margin-top: 4.5rem;
+    width: 100%;
+}
+.component__main h2{
+    font-size: 2.0625rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    
+}
+.main__buttons{
+    margin-bottom: 1.25rem;
+}
+.buttons__button{
+    height: 3.125rem;
+    //height: 6rem;
+    display: flex;
+    flex-direction: column;
+    //box-shadow: 0 0.25rem 0rem -0.1875rem $lightGrayBlue;
+    border-bottom: 0.0625rem solid $lightGrayBlue;
+    transition: 300ms all;
+    img{
+        transition: 300ms all;
+    }
+
+}
+.buttons__button button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    margin-top: 1.0625rem;
+    font-family: 'Kumbh Sans', sans-serif;
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background-color: transparent;
+    transition: 100ms all;
+    padding: 0;
+
+}
+
+.buttons__button button:focus{
+    outline: none;
+    color: $softRed;
+    
+
+}
+
+.buttons__button button:hover{
+    color: $softRed;
+}
+.button__content{
+    display: none;
+    
+    p{
+        margin: 0;
+        color: $darkGrayBlue;
+        font-size: 0.75rem;
+    }
+}
+.active{
+    button{
+        font-weight: 600;
+        color: $veryDarkBlue;
+    }
+    height: 6rem;
+    img{
+        transform: rotate(180deg);
+    }
+    .button__content{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.component__images{
+    display: inline-flex;
+    //align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+.image__cube{
+    position: absolute;
+    z-index: 10;
+    transform: translateY(101%) translateX(-103%);
+    //top: 36.5%;
+    //left: -10%;
+}
+.images__girl{
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    min-height: 31.875rem;
+    max-height: fit-content;
+    width: 25rem;
+}
+.image__girl__desktop{
+    position: absolute;
+    //top: 10%;
+    //left: -9%;
+    transform: translateY(15%) translateX(-17%);
+    z-index: 9;
+}
+.image__girl__mobile{
+    display: none;
+}
+.image__girl__shadow__mobile{
+    display: none;
+}
+
+.image__girl__shadow__desktop{
+    position: absolute;
+    min-height: 31.875rem;
+    //top: -63%;
+    //left: -63%;
+    transform: translateY(-34%) translateX(-60%);
+}
+
+
+@include breakpoint-down(small){
+    .component{
+        flex-direction: column;
+        align-items: center;
+    }
+    .component__main{
+        margin: 0 1.5rem;
+        margin-top: 8.625rem;
+        width: calc(100% - 3rem);
+        
+    }
+    .component__main h2{
+        font-size: 2.0625rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        
+    }
+    .main__buttons{
+        margin-top: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    .component__images{
+        height: 0;
+    }
+    .image__cube{
+        display: none;
+    }
+    .images__girl{
+        overflow: initial;
+        height: 0;
+        width: 15.3125rem;
+        transform: translateX(-32%);
+        
+    }
+    .image__girl__desktop{
+        display: none;
+    }
+    .image__girl__shadow__desktop{
+        display: none;
+    }
+    .image__girl__mobile{
+        display: block;
+        position: absolute;
+        transform: translateX(20%) translateY(-55%);
+    }
+    .image__girl__shadow__mobile{
+        display: block;
+        position: absolute;
+        transform: translateX(33%) translateY(-4%);
+    }
+}
